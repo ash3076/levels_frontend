@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import Progress from './Progress';
-
+import {URL} from "../utils/contants"
 
 const User = ({changed}) => {
     const [user ,setUser] = useState([]);
@@ -11,7 +11,7 @@ const User = ({changed}) => {
 
     useEffect(() => {
         const getLevel = async () => {
-            const response = await axios.get("http://localhost:3000/api/v1/user/level");
+            const response = await axios.get(`${URL}api/v1/user/level`);
             // console.log(response?.data);
             const levels_array = response?.data; 
             const currentLevel = user.currentLevel;
@@ -35,7 +35,7 @@ const User = ({changed}) => {
 
         const getUserDetails = async () =>{
             try{
-                const response = await axios.get("http://localhost:3000/api/v1/user");
+                const response = await axios.get(`${URL}api/v1/user`);
                 // console.log("data ", response?.data[0]);
                 setUser(response.data[0]);
             }

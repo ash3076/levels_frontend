@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from "axios";
 
+import {URL} from "../utils/contants" 
 
 const Task = ({data,setChanged}) => {
     // const isPos = data?.isPos;
@@ -8,7 +9,7 @@ const Task = ({data,setChanged}) => {
     // console.log(data);
 
     const handleScore =  async (score) => {
-        const response = await axios.post("http://localhost:3000/api/v1/user/addPoints" ,{points :  score});
+        const response = await axios.post(`${URL}api/v1/user/addPoints` ,{points :  score});
         console.log(response?.data);
         setChanged(prev => !prev);
     }

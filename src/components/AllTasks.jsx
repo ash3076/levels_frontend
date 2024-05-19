@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import Task from './Task';
 import User from './User';
-
+import {URL} from "../utils/contants"
 
 const AllTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -21,7 +21,7 @@ const AllTasks = () => {
   useEffect(() => {
     const getTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/tasks");
+        const response = await axios.get(`${URL}api/v1/tasks`);
         const { data } = response;
         setTasks(data); // Set tasks data if fetch is successful
         // toast.success("data connected !!" , toastOptions)
