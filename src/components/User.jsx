@@ -14,14 +14,16 @@ const User = ({changed}) => {
             const response = await axios.get(`${URL}api/v1/user/level`);
             // console.log(response?.data);
             const levels_array = response?.data; 
-            const currentLevel = user.currentLevel;
+            const curLvl = user.currentLevel;
             // console.log(currentLevel);
+            levels_array.sort((a, b) => a.ashers - b.ashers);
             for(let i = 0 ; i < 100 ; i++)
             {
-                // console.log("here at i :" , levels_array[i].ashers);
-                if(levels_array[i].ashers > currentLevel)
+                if(levels_array[i].ashers > curLvl)
                 {
+                    // console.log("here at il : ",i , " here level val : ",levels_array[i].ashers , " and cur level : ",curLvl);
                     setLevel(i);
+                    // console.log(" \n->>>>level : ",i);
                     break;   
                 }
             }
@@ -29,7 +31,7 @@ const User = ({changed}) => {
         }
 
         getLevel();
-    },[user.currentLevel])
+    },[user.currentLevel , user.maxLevel])
 
     useEffect(() => {
 
