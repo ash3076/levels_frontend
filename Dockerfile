@@ -19,7 +19,7 @@ RUN npm run build
 # Use a minimal nginx image to serve the static files
 FROM nginx:alpine
 
-COPY ./dist /usr/share/nginx/html
+COPY dist /usr/share/nginx/html
 
 
 
