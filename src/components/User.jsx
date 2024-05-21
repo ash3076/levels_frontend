@@ -7,6 +7,7 @@ const User = ({changed}) => {
     const [user ,setUser] = useState([]);
     const [percentageBar , setPercentageBar] = useState(0);
     const [level , setLevel] = useState(0);
+    const [nextLevelPoints , setNextLevelPoints] = useState(0);
 
 
     useEffect(() => {
@@ -23,6 +24,7 @@ const User = ({changed}) => {
                 {
                     // console.log("here at il : ",i , " here level val : ",levels_array[i].ashers , " and cur level : ",curLvl);
                     setLevel(i);
+                    setNextLevelPoints(levels_array[i+1].ashers);
                     // console.log(" \n->>>>level : ",i);
                     break;   
                 }
@@ -67,6 +69,10 @@ const User = ({changed}) => {
 
         </div>
         <p className='current-level'>{user.currentLevel} / {user.maxLevel} ashers </p>
+        <div className="nextLvl">
+            <span className='nextLvlText'>Next level {level+1} </span>
+            <span className='nextLvlScore'>Required Points {nextLevelPoints - user?.currentLevel}</span>
+        </div>
     </div>
   )
 }
