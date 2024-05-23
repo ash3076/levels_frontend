@@ -129,6 +129,102 @@
     
 }
 
+
+/* css for daily task slide bar  */
+.dailyTasksBar{
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 2rem;
+    font-weight: 900;
+    padding: 10px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+/* css for daily tasks  */
+
+.daily-task{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: hsla(0, 0%, 0%, 0.97);
+    color: rgb(241, 241, 241);
+    padding: 10px;
+}
+.tasks-daily {
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    padding: 15px 0;
+    /* justify-content: start; */
+}
+
+.taskDetails {
+    position: relative;
+    transition: margin-bottom 0.3s ease;
+}
+
+.taskDetails.show-description {
+    margin-bottom: 50px; /* Adjust based on the description height */
+}
+
+.taskDescription {
+    display: none;
+    position: relative; /* Change to relative to affect document flow */
+    /* background-color: white; */
+    border: 1px solid #ccc;
+    /* width: 100%; */
+    padding: 10px;
+    margin-top: 5px;
+
+}
+
+.taskDetails.show-description .taskDescription {
+    display: block;
+}
+
+.tasks-daily .check-btn {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    border: 2px solid #e81212;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tasks-daily .check-btn.checked {
+    background-color: green;
+    border-color: green;
+    position: relative;
+}
+
+.tasks-daily .check-btn.checked::after {
+    content: '✔';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+}
+.daily-task .close-btn
+{
+    padding: 5px;
+    font-weight: 800;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+}
+
+
 @media (max-width : 450px)
 {
     .task-btn
