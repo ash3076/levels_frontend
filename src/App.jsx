@@ -15,6 +15,10 @@ const App = () => {
 
   return (
     <div>
+      <div className="mobileBg">
+        <img src="https://w0.peakpx.com/wallpaper/736/971/HD-wallpaper-solo-leveling-sung-jin-woo.jpg" alt="" />
+
+      </div>
       <button onClick={handleDailyButton} className='dailyTasksBar'>
         //
       </button>

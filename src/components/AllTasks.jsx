@@ -41,17 +41,7 @@ const AllTasks = () => {
   return (
     <div>
       <User changed = {changed} />
-      <div className='whatIsWhat'>
-          <div className='positivePoints cont'>
-              <div className='rectangle green'></div>
-              <p>win</p>
-          </div>
-          <div className="negativePoints cont">
-              <div className="rectangle red"></div>
-              <p>lose</p>
-          </div>
-      </div>
-
+      
       {
         <ul className='tasks'>
           {tasks.map(task => (

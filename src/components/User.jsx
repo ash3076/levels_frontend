@@ -62,9 +62,7 @@ const User = ({changed}) => {
         <div className='header-percentage-container'>
             <Progress data = {user} setPercentageBar = {setPercentageBar} />
             <div className='header-percentage'>
-            <span>{percentageBar}%</span>
-            <span className='level'>Lvl {level}</span>
-
+                <span className='level'>Lvl {level}</span>
             </div>
 
         </div>
