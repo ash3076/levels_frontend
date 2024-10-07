@@ -1,16 +1,20 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import {URL} from "../utils/contants"
-
-
+import { URL } from "../utils/contants";
 
 const DailyTaskComponent = ({ tasks }) => {
-  const { _id, title, description, isDone } = tasks;
+  const { _id, title, description, isDone: initialIsDone } = tasks;
+  const [isTaskDone, setIsTaskDone] = useState(initialIsDone);
   const [showDescription, setShowDescription] = useState(false);
 
   const taskChecked = async (taskId) => {
-    const response = await axios.post(`${URL}api/v1/dailyTasks/${taskId}`);
-    // Handle the response if needed
+    try {
+      const response = await axios.post(`${URL}api/v1/dailyTasks/${taskId}`);
+      // Assuming the response will have the updated task
+      setIsTaskDone(response.data.isDone); // Update local isDone state
+    } catch (error) {
+      console.error("Error updating the task status:", error);
+    }
   };
 
   const toggleDescription = () => {
@@ -19,7 +23,10 @@ const DailyTaskComponent = ({ tasks }) => {
 
   return (
     <div className='tasks-daily'>
-      <button className={`check-btn ${isDone ? "checked" : ""}`} onClick={() => taskChecked(_id)}></button>
+      <button
+        className={`check-btn ${isTaskDone ? "checked" : ""}`}
+        onClick={() => taskChecked(_id)}
+      ></button>
       <div className={`taskDetails ${showDescription ? "show-description" : ""}`}>
         <h2 onClick={toggleDescription}>{title}</h2>
         {showDescription && (
